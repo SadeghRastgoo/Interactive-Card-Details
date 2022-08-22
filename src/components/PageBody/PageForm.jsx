@@ -11,6 +11,7 @@ const PageForm = ({ handleInputs, cardDetails, toast }) => {
       expireYear: event.target[3].value,
       cvc: event.target[4].value,
     };
+    console.log(formData);
     const isValid = await userSchema.isValid(formData);
     if (isValid) handleInputs.changeAppState(1);
     else toast();
