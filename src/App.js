@@ -1,6 +1,10 @@
 import { useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
 import CardsSection from "./components/Cards/CardsSection";
 import PageBody from "./components/PageBody/PageBody";
+
+const notify = () =>
+  toast.error("Make sure fields are filled correctly");
 
 function App() {
   const [appState, setAppState] = useState(0)
@@ -39,10 +43,13 @@ function App() {
   }
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] grid-rows-2 min-h-screen">
-      <CardsSection cardDetails={cardDetails} />
-      <PageBody appState={appState} cardDetails={cardDetails} handleInputs={handleInputs} />
-    </div>
+    <>
+      <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] grid-rows-2 min-h-screen">
+        <CardsSection cardDetails={cardDetails} />
+        <PageBody appState={appState} cardDetails={cardDetails} handleInputs={handleInputs} toast={notify} />
+      </div>
+      <Toaster />
+    </>
   );
 }
 
