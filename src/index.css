@@ -13,6 +13,6 @@ body {
 
 @media screen and (max-height: 750px) {
   .form-container {
-    margin-top: 3rem;
+    margin-top: 2rem;
   }
 }
