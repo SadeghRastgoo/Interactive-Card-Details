@@ -1,8 +1,26 @@
+import { userSchema } from "./../../validations/CardValidation";
 import Button from "../Button/Button";
 
-const PageForm = ({ handleInputs, cardDetails }) => {
+const PageForm = ({ handleInputs, cardDetails, toast }) => {
+  const validateForm = async (event) => {
+    event.preventDefault();
+    let formData = {
+      cardHolder: event.target[0].value,
+      cardNumber: event.target[1].value,
+      expireMonth: event.target[2].value,
+      expireYear: event.target[3].value,
+      cvc: event.target[4].value,
+    };
+    const isValid = await userSchema.isValid(formData);
+    if (isValid) handleInputs.changeAppState(1);
+    else toast();
+  };
+
   return (
-    <form className="form-container flex flex-col gap-4 md:max-w-xs text-xs col-start-2 col-span-1">
+    <form
+      className="form-container flex flex-col gap-4 md:max-w-xs text-xs col-start-2 col-span-1"
+      onSubmit={validateForm}
+    >
       <div className="flex flex-col space-y-1">
         <label className="tracking-widest text-[10px] text-[#21092f]">
           CARDHOLDER NAME
@@ -82,9 +100,7 @@ const PageForm = ({ handleInputs, cardDetails }) => {
           />
         </div>
       </div>
-      <Button type="submit" onClick={() => handleInputs.changeAppState(1)}>
-        Confirm
-      </Button>
+      <Button type="submit">Confirm</Button>
     </form>
   );
 };
