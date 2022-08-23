@@ -1,4 +1,4 @@
-const CardFront = ({ cardExpire, cardNumber, cardOwner }) => {
+const CardFront = ({ cardExpire, cardNumber, cardOwner, cardBankLogo }) => {
   return (
     <div className="px-5 pt-6 md:p-0">
       <div className="w-full max-w-[350px] absolute md:relative md:bottom-[unset] -bottom-12 md:max-w-sm mr-auto">
@@ -8,8 +8,8 @@ const CardFront = ({ cardExpire, cardNumber, cardOwner }) => {
           alt="Credit Card Back"
         />
         <img
-          className="absolute top-6 left-6 scale-90"
-          src="images/card-logo.svg"
+          className={cardBankLogo ? "" : "absolute top-6 left-6 scale-90"}
+          src={cardBankLogo}
           alt=""
         />
         <p className="absolute bottom-14 left-1/2 -translate-x-1/2 w-10/12 text-white text-lg font-bold text-center tracking-[4.7px] z-10">

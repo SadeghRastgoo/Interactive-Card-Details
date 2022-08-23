@@ -10,6 +10,7 @@ const CardsSection = ({ cardDetails }) => {
           cardNumber={cardDetails.cardNumber}
           cardOwner={cardDetails.cardOwner}
           cardExpire={cardDetails.cardExpire}
+          cardBankLogo={cardDetails.cardBankLogo}
         />
       </div>
     </section>
