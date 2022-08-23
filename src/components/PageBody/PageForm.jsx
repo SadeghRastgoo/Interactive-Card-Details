@@ -49,7 +49,7 @@ const PageForm = ({ handleInputs, cardDetails, toast }) => {
       </div>
       <div className="grid grid-cols-2 gap-4">
         <div className="flex flex-col space-y-1">
-          <label className="tracking-widest text-[10px] text-[#21092f]">
+          <label className="tracking-widest text-[10px] text-[#21092f] truncate">
             EXP. DATE (MM/YY)
           </label>
           <div className="grid gap-2 grid-cols-2">
